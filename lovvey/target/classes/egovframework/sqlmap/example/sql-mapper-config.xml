@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN" "http://mybatis.org/dtd/mybatis-3-config.dtd">
+
+<configuration>
+    <typeAliases>
+		<typeAlias type="lovvey.domain.Test" alias="test"/>
+		<typeAlias type="lovvey.domain.Test2" alias="test2"/>
+		<typeAlias type="lovvey.domain.Account" alias="account"/>
+		<typeAlias type="lovvey.domain.Custom" alias="custom"/>
+		<typeAlias type="lovvey.dto.Page1Dto" alias="page1Dto"/>
+		<typeAlias type="lovvey.dto.Page3Dto" alias="page3Dto"/>
+	<!-- 	
+	<typeAlias type="lovvey.dto.Page2Dto" alias="page2Dto"/>
+	 -->
+    </typeAliases>
+</configuration>

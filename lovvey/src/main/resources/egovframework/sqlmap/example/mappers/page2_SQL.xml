@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper  namespace="Lovvey.page2_SQL.page2Mapper">
+		
+		
+	<resultMap type="lovvey.dto.Page2Dto" id="page2Dto">
+		<id property="busiNum" column= "BUSI_NUM" />
+		<result property="custom" column="CUSTOM"/>
+		<result property="customShort" column="SHORT"/>
+		<result property="ceo" column="CEO"/>
+		<result property="chargePerson" column="CHARGE_PERSON"/>
+		<result property="busiCondition" column="BUSI_CONDITION"/>
+		<result property="item" column="ITEM"/>
+		<result property="postNum" column="POST_NUM"/>
+		<result property="addr1" column="ADDR1"/>
+		<result property="addr2" column="ADDR2"/>
+		<result property="tel" column="TEL"/>
+		<result property="fax" column="FAX"/>
+		<result property="homepage" column="HOMEPAGE"/>
+		<result property="coYn" column="CO_YN"/>
+		<result property="foreignYn" column="FOREIGN_YN"/>
+		<result property="taxYn" column="TAX_YN"/>
+		<result property="country_eng" column="COUNTRY_ENG"/>
+		<result property="country_kor" column="COUNTRY_KOR"/>
+		<result property="specialRelation" column="SPECIAL_RELATION"/>
+		<result property="tradeStop" column="TRADE_STOP"/>
+		<result property="contractPeriodS" column="CONTRACT_PERIOD_S"/>
+		<result property="contractPeriodE" column="CONTRACT_PERIOD_E"/>
+		<result property="regiInfoMan" column="REGI_INFO_MAN"/>
+		<result property="regiInfoDate" column="REGI_INFO_DATE"/>
+		<result property="modiInfoMan" column="MODI_INFO_MAN"/>
+		<result property="modiInfoDate" column="MODI_INFO_DATE"/>
+		<result property="factory" column="FACTORY"/>
+		<result property="tradeBank" column="TRADE_BANK"/>
+		<result property="accountNum" column="ACCOUNT_NUM"/>
+		</resultMap>
+	
+	
+	<!-- 
+	리팩토리 요망 
+	사유: page1에서 사용되는 Dto인데 Dto이름부터 잘못 명명되어있어서 allPage1Dto로 변경 요망함.
+	 -->
+	<resultMap type="lovvey.dto.AllPage2Dto" id="allPage2Dto">
+		<id property="busiNum" column="BUSI_NUM"/>
+		<result property="custom" column="CUSTOM"/>
+	</resultMap>	
+	 		
+		<select id="selectAllListPage2" parameterType="lovvey.dto.AllPage2Dto"  resultMap="allPage2Dto">
+			SELECT 
+			BUSI_NUM,
+			`CUSTOM`
+	 		FROM custom
+		</select>
+		
+		<select id="listPage2"  parameterType="lovvey.dto.Page2Dto" resultMap="page2Dto" >
+			SELECT 
+			custom.BUSI_NUM AS BUSI_NUM,
+			`CUSTOM`,
+			SHORT,
+			CEO,
+			CHARGE_PERSON,
+			BUSI_CONDITION,
+			ITEM,
+			POST_NUM,
+			ADDR1,
+			ADDR2,
+			TEL,
+			FAX,
+			HOMEPAGE,
+			CO_YN,
+			FOREIGN_YN,
+			TAX_YN,
+			COUNTRY_ENG,
+			COUNTRY_KOR,
+			SPECIAL_RELATION,
+			TRADE_STOP,
+			CONTRACT_PERIOD_S,
+			CONTRACT_PERIOD_E,
+			REGI_INFO_MAN,
+			REGI_INFO_DATE,
+			MODI_INFO_MAN,
+			MODI_INFO_DATE,
+			FACTORY,
+			TRADE_BANK,
+			ACCOUNT_NUM
+			FROM custom JOIN account ON custom.BUSI_NUM= account.BUSI_NUM
+			 AND custom.BUSI_NUM=#{busiNum}
+		</select>
+
+
+<delete id="deletePage2">
+
+DELETE FROM a, c using account AS a JOIN custom AS c ON a.BUSI_NUM = c.BUSI_NUM WHERE a.BUSI_NUM=#{busiNum}
+</delete>
+
+	<select id="allListPage2" parameterType="hashmap" resultMap="page2Dto">
+	
+	
+	
+	</select>
+
+	
+
+</mapper>

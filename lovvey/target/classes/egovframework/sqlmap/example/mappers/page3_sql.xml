@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper  namespace="Lovvey.page3_SQL.page3Mapper">
+	
+	<resultMap type="page3Dto" id="page3Dto">
+		<result property="kor" column="KOR"/>
+		<result property="eng" column="ENG"/>
+	</resultMap>
+	
+	<select id="selectPage3" resultMap="page3Dto" resultType="page3Dto">
+	SELECT 
+		KOR,
+		ENG
+	FROM country
+	</select>
+		
+</mapper>

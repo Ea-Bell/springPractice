@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+
+<mapper namespace="Lovvey.loverySQL.LoveyMapper">
+<!-- 
+<resultMap  type="lovvey.domain.Test" id="test">
+	<id property="key_id" column="key_id" />
+	<result property="id"	column="id"/>
+	<result property="num" column="num"/>
+	<result property="name" column="name"/>
+</resultMap>
+
+
+<resultMap type="lovvey.domain.Test2" id="test2">
+	<id property="test_test" column="test"/>
+	<result property="test_test2" column="test2"/>
+</resultMap>
+
+<insert id="insertTestLovvey" parameterType="test">
+	insert into test
+	(
+	   id
+	 , num
+	 , name
+	) values
+	(
+	  #{id}
+	, #{num}
+	, #{name}
+	)
+	
+</insert>
+
+<insert id="insetTest2" parameterType="test2">
+	insert into test
+	(
+		test,
+		test2
+	)values( 
+		#{test_test},
+		#{test_test2}
+		)
+</insert>
+
+
+ -->
+
+
+</mapper>

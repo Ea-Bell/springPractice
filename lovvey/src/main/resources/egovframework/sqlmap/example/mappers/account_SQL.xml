@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+
+<mapper namespace="Lovvey.account_SQL.accountMapper">
+	
+	<resultMap type="lovvey.domain.Account" id="account">
+	<id property="busiNum" column="BUSI_NUM" />
+	<result property="factory" column="FACTORY"/>
+	<result property="tradeBank" column="TRADE_BANK"/>
+	<result property="accountNum" column="ACCOUNT_NUM"/>
+	</resultMap>
+	
+
+	
+	
+	
+<insert id="insertAccount" parameterType="account">
+	insert into account(
+	 BUSI_NUM,
+	 FACTORY,
+	 TRADE_BANK,
+	 ACCOUNT_NUM
+	) values(
+		#{busiNum},
+		#{factory},
+		#{tradeBank},
+		#{accountNum}
+	)
+</insert>	
+	
+
+<update id="updateAccount">
+	update account set 
+	
+	 BUSI_NUM    = #{busiNum},
+	 FACTORY     = #{factory},
+	 TRADE_BANK  = #{tradeBank},
+	 ACCOUNT_NUM = #{accountNum}	
+	where BUSI_NUM =#{busiNum}
+	
+</update>	
+
+<delete id="deleteAccount">
+	delete from account
+	where BUSI_NUM =#{busiNum}
+</delete>
+
+</mapper>

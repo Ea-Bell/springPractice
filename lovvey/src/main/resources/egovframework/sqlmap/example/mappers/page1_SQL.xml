@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+
+<mapper  namespace="Lovvey.page1_SQL.page1Mapper">
+
+<resultMap type="page1Dto" id="page1Dto">
+	<id property="busiNum" column="BUSI_NUM"/>
+	<result property="custom" column="CUSTOM"/>
+</resultMap>
+
+<select id="searchPage1" parameterType="page1Dto" resultMap="page1Dto">
+	SELECT 
+	custom.BUSI_NUM AS BUSI_NUM,
+	 `CUSTOM`
+	 FROM account
+	 jOIN custom ON account.BUSI_NUM= custom.BUSI_NUM
+	 WHERE 
+	  custom.BUSI_NUM Like TRIM('%${busiNum}%') AND `CUSTOM` Like TRIM('%${custom}%')
+</select>
+
+</mapper>

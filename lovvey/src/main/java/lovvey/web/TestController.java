@@ -44,7 +44,7 @@ import lovvey.service.TestService;
 import lovvey.service.impl.Page2ServiceImpl;
 import lovvey.util.ControllerUtil;
 
-@CrossOrigin(origins = {"*","www.localhost","www.localhost:8080"})
+//@CrossOrigin(origins = {"*","www.localhost","www.localhost:8080"})
 @Controller
 public class TestController {
 
@@ -258,7 +258,7 @@ public class TestController {
 		Page3Dto page3Dto = new Page3Dto();
 		
 		List<Page3Dto> list= page3Service.selectPage3(page3Dto);
-		response.setHeader("X-Frame-Options", "ALLOW-FROM http://www.localhost:8989");
+//		response.setHeader("X-Frame-Options", "ALLOW-FROM http://www.localhost:8989");
 		
 		model.addAttribute("page3", list);
 		}catch (Exception e) {
@@ -273,7 +273,7 @@ public class TestController {
 
 	@GetMapping("/page4")
 	public String page4(HttpServletResponse response) throws Exception {
-		response.setHeader("X-Frame-Options", "ALLOW-FROM http://localhost:8989");
+//		response.setHeader("X-Frame-Options", "ALLOW-FROM http://localhost:8989");
 		return "page4";
 	}
 	
